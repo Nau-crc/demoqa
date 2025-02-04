@@ -1,5 +1,7 @@
 package seleniumproject;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,24 +9,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class IntermediateLevelTest {
 
 private ChromeDriver driver;
+private FirefoxDriver driverFirefox;
 JavascriptExecutor js;
+private boolean useChrome = false; // Cambia a 'true' si quieres usar Chrome
 
 @Before
 public void setUp() {
-    WebDriverManager.chromedriver().setup();
-    driver = new ChromeDriver();
-    js = (JavascriptExecutor) driver;
+    if (useChrome) {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        js = (JavascriptExecutor) driver;
+    } else {
+        WebDriverManager.firefoxdriver().setup();
+        driverFirefox = new FirefoxDriver();
+        js = (JavascriptExecutor) driverFirefox;
+    }
 }
+
 
 @After
 public void tearDown() {
+    if(useChrome) {
         driver.quit();
+}else if(!useChrome){
+    driverFirefox.quit();
+}
 }
 
 @Test
@@ -40,4 +56,12 @@ public void studentRegistrationForm(){
     js.executeScript("arguments[0].click();", driver.findElement(By.id("submit")));
     js.executeScript("arguments[0].click();", driver.findElement(By.id("closeLargeModal")));
 }
+
+ @Test
+  public void alerts() {
+    driverFirefox.get("https://demoqa.com/alerts");
+    driverFirefox.manage().window().setSize(new Dimension(1472, 842));
+    driverFirefox.findElement(By.id("alertButton")).click();
+    assertEquals("You clicked a button", driverFirefox.switchTo().alert().getText());
+  }
 }
