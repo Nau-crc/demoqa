@@ -18,7 +18,7 @@ public class IntermediateLevelTest {
 private ChromeDriver driver;
 private FirefoxDriver driverFirefox;
 JavascriptExecutor js;
-private boolean useChrome = false; // Cambia a 'true' si quieres usar Chrome
+private boolean useChrome = true; // Cambia a 'true' si quieres usar Chrome
 
 @Before
 public void setUp() {
