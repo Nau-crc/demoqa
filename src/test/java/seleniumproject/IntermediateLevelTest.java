@@ -37,8 +37,7 @@ public void studentRegistrationForm(){
     driver.findElement(By.cssSelector(".custom-radio:nth-child(2) > .custom-control-label")).click();
     driver.findElement(By.id("userNumber")).click();
     driver.findElement(By.id("userNumber")).sendKeys("1234567890");
-    driver.findElement(By.id("submit")).click();
-    driver.findElement(By.id("closeLargeModal")).click();
-
+    js.executeScript("arguments[0].click();", driver.findElement(By.id("submit")));
+    js.executeScript("arguments[0].click();", driver.findElement(By.id("closeLargeModal")));
 }
 }
