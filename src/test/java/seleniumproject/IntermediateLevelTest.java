@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -58,4 +59,14 @@ public class IntermediateLevelTest {
         driver.findElement(By.id("alertButton")).click();
         assertEquals("You clicked a button", driver.switchTo().alert().getText());
     }
+
+     @Test
+    public void loginTest() {
+        driver.get("https://the-internet.herokuapp.com/login");
+        driver.findElement(By.id("username")).click();
+        driver.findElement(By.id("username")).sendKeys("tomsmith");
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
+        driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
+  }
 }
