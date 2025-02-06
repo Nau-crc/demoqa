@@ -1,14 +1,24 @@
 package seleniumproject;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.time.Duration;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.Assert;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AdvanceLevelTest {
@@ -76,5 +86,17 @@ public void checkOut() {
     boolean complete = driver.findElement(By.xpath("//h2[text()='Thank you for your order!']")).isDisplayed();
     assertEquals(true, complete);
 }
-    
+
+ @Test
+    public void dynamicProperties() {
+        driver.get("https://demoqa.com/dynamic-properties");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.id("enableAfter")).isEnabled();
+        driver.findElement(By.id("enableAfter")).click();
+    }
+
 }
