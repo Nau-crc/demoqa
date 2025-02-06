@@ -46,8 +46,8 @@ public class AdvanceLevelTest {
         }
     }
 
-    @Test
-  public void addItemShoppingCart(){
+@Test
+public void addItemShoppingCart(){
 
     driver.get("https://www.saucedemo.com/");
     driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -104,13 +104,12 @@ public void checkOut() {
         driver.get("https://demoqa.com/droppable");
         WebElement drag = driver.findElement(By.id("draggable"));
         WebElement drop = driver.findElement(By.id("droppable"));
-
-        // Usar clickAndHold() y release() en lugar de dragAndDrop()
+        
         Actions actions = new Actions(driver);
-        actions.clickAndHold(drag) // Mantiene presionado el clic
-               .moveToElement(drop) // Mueve el elemento al área de destino
-               .release() // Suelta el botón del mouse
-               .perform(); // Ejecuta la acción
+        actions.clickAndHold(drag) 
+            .moveToElement(drop)
+            .release() 
+            .perform();
         Assert.assertEquals("Dropped!", drop.getText());
     }
 }

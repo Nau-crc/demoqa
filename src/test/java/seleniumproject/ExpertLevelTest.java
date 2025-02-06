@@ -1,0 +1,48 @@
+package seleniumproject;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ExpertLevelTest {
+    private WebDriver driver;
+    private JavascriptExecutor js;
+    private boolean useChrome = false; // Cambia a 'true' si quieres usar Chrome
+
+    @Before
+    public void setUp() {
+        if (useChrome) {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        } else {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        }
+        js = (JavascriptExecutor) driver;
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    @Test
+    public void deleteUserFromDinamicTable() {
+        driver.get("https://demoqa.com/webtables");
+        driver.findElement(By.id("delete-record-1")).click();
+        boolean isUserDeleted = driver.findElements(By.xpath("//div[text()='Cierra']")).isEmpty();
+        assertEquals(true, isUserDeleted);
+    }
+}
