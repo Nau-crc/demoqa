@@ -1,4 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: seleniumproject.BasicLevelTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.096 s - in seleniumproject.BasicLevelTest
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.47 s <<< FAILURE! - in seleniumproject.BasicLevelTest
+seleniumproject.BasicLevelTest.searchBoxTest  Time elapsed: 3.531 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <textarea class="gLFyf" aria-controls="Alh6id" aria-owns="Alh6id" autofocus="" title="Search" value="" aria-label="Search" placeholder="" aria-autocomplete="both" aria-expanded="false" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" id="APjFqb" maxlength="2048" name="q" role="combobox" rows="1" spellcheck="false" jsaction="paste:puy29d" data-ved="0ahUKEwjRrP6y9LiLAxU7VqQEHW5uAMcQ39UDCAQ"></textarea> is not clickable at point (577, 209). Other element would receive the click: <ul class="dbXO9">...</ul>
+  (Session info: chrome=132.0.6834.160)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.4.1', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9cd1a51e9453e564fdd8e2ead6dc6706, clickElement {id=f.46A5FAB0B2BB0E377EB27CDA29118E14.d.3153FBBC52A252E6B237A41A124F63C7.e.1}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.160, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: /var/folders/lx/4vr7dgh95nv...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51746}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51746/devtoo..., se:cdpVersion: 132.0.6834.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (9cd1a51e9453e564fdd8e2ead6dc6706)] -> id: APjFqb]
+Session ID: 9cd1a51e9453e564fdd8e2ead6dc6706
+	at seleniumproject.BasicLevelTest.searchBoxTest(BasicLevelTest.java:44)
+
