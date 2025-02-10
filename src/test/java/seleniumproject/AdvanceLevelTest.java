@@ -1,13 +1,10 @@
 package seleniumproject;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import java.time.Duration;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,19 +12,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.junit.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AdvanceLevelTest {
 
     private WebDriver driver;
-    private JavascriptExecutor js;
+    JavascriptExecutor js;
     private boolean useChrome = false; // Cambia a 'true' si quieres usar Chrome
 
-    @Before
+    @BeforeEach
     public void setUp() {
         if (useChrome) {
             WebDriverManager.chromedriver().setup();
@@ -39,7 +33,7 @@ public class AdvanceLevelTest {
         js = (JavascriptExecutor) driver;
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -110,6 +104,6 @@ public void checkOut() {
             .moveToElement(drop)
             .release() 
             .perform();
-        Assert.assertEquals("Dropped!", drop.getText());
+        assertEquals("Dropped!", drop.getText());
     }
 }

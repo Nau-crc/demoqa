@@ -1,17 +1,17 @@
 package seleniumproject;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.Cookie;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 
 public class BasicLevelTest {
@@ -19,13 +19,13 @@ public class BasicLevelTest {
 
 private WebDriver driver;
 
-@Before
+@BeforeEach
 public void setUp() {
     WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
 }
 
-@After
+@AfterEach
 public void tearDown() {
         driver.quit();
 }

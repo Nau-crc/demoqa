@@ -1,9 +1,8 @@
 package seleniumproject;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class IntermediateLevelTest {
@@ -18,8 +18,8 @@ public class IntermediateLevelTest {
     private WebDriver driver;
     private JavascriptExecutor js;
     private boolean useChrome = false; // Cambia a 'true' si quieres usar Chrome
-
-    @Before
+    
+    @BeforeEach
     public void setUp() {
         if (useChrome) {
             WebDriverManager.chromedriver().setup();
@@ -30,8 +30,7 @@ public class IntermediateLevelTest {
         }
         js = (JavascriptExecutor) driver;
     }
-
-    @After
+    @AfterEach
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -57,11 +56,11 @@ public class IntermediateLevelTest {
         assertEquals("You clicked a button", driver.switchTo().alert().getText());
     }
 
-     @Test
+    @Test
     public void loginTest() {
         driver.get("https://the-internet.herokuapp.com/login");
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.id("password")).sendKeys(Keys.ENTER);
-  }
+}
 }

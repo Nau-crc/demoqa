@@ -1,2 +1,5 @@
 seleniumproject/AppTest.class
+seleniumproject/ExpertLevelTest.class
+seleniumproject/IntermediateLevelTest.class
 seleniumproject/BasicLevelTest.class
+seleniumproject/AdvanceLevelTest.class
