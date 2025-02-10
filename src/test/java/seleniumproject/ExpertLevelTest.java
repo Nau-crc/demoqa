@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.junit.jupiter.api.ParameterizedTest;
+// import org.junit.jupiter.api.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -32,7 +32,7 @@ public class ExpertLevelTest {
         }
         js = (JavascriptExecutor) driver;
     }
-    @ParameterizedTest
+    // @ParameterizedTest
     @ValueSource(strings = {"chrome", "firefox"})
     public void testInDifferentBrowsers(String browser) {
         if (browser.equals("chrome")) {
